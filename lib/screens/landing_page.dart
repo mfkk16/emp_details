@@ -125,6 +125,8 @@ class _LandingPageState extends State<LandingPage> implements LandingView {
             separatorBuilder: (context, index) => Divider(),
             itemBuilder: (context, index) {
               final item = _listEmpTemp[index];
+              final company = item["company"];
+
               return InkWell(
                 onTap: () => _presenter.onCardClick(item),
                 child: Row(
@@ -137,7 +139,10 @@ class _LandingPageState extends State<LandingPage> implements LandingView {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(item["name"], style: FontConstants.black15B),
-                          Text(item["email"] ?? "", style: FontConstants.black14),
+                          Text(
+                            company != null ? company["name"] ?? "" : item["email"] ?? "",
+                            style: FontConstants.black14,
+                          ),
                         ],
                       ),
                     ),
