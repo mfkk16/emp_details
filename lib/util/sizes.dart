@@ -1,0 +1,1 @@
+const double bodyPadding = 20;
